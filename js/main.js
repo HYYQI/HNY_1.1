@@ -9,13 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (diff < 0) {
             countdownElement.innerHTML = '新年快乐！';
-            audio.pause();
+            audio.play();
         } else {
-            const hours = Math.floor(diff / 3600000);
-            const minutes = Math.floor((diff % 3600000) / 60000);
-            const seconds = Math.floor((diff % 60000) / 1000);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            countdownElement.innerHTML = `${hours}时 ${minutes}分 ${seconds}秒`;
+            countdownElement.innerHTML = `${days}天 ${hours}时 ${minutes}分 ${seconds}秒`;
         }
     }
 
@@ -23,11 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function createMarqueeMessages() {
         const messages = [
-            '新年快乐！',
-            '万事如意！',
-            '恭喜发财！',
-            '身体健康！',
-            '笑口常开！'
+            '新年快乐，万事如意！',
+            '恭喜发财，红包拿来！',
+            '身体健康，笑口常开！',
+            '心想事成，步步高升！',
+            '学业进步，事业有成！',
+            '家庭和睦，幸福美满！',
+            '财源广进，生意兴隆！',
+            '好运连连，喜事多多！',
+            '平安喜乐，岁岁平安！',
+            '福星高照，鸿运当头！',
+            '友情长久，爱情甜蜜！'
         ];
 
         const marquee = document.querySelector('.marquee');
