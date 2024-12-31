@@ -4,6 +4,7 @@ body, html {
     font-family: 'Arial', sans-serif;
     background-color: #FFD700; /* 金色背景 */
     color: #fff; /* 文字颜色 */
+    overflow: hidden; /* 防止滚动条出现 */
 }
 
 .container {
@@ -21,9 +22,6 @@ header h1 {
 
 .countdown {
     margin: 20px;
-}
-
-#countdown-time {
     font-size: 4em;
     color: #FF0000; /* 红色 */
 }
@@ -32,6 +30,7 @@ header h1 {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 100%;
     overflow: hidden;
     pointer-events: none; /* 防止弹幕阻挡点击 */
 }
@@ -40,7 +39,16 @@ header h1 {
     white-space: nowrap;
     display: inline-block;
     padding: 10px;
+    font-size: 1.5em;
     animation: scrollMarquee 10s linear infinite;
 }
 
-/* 其他样式 */
+/* 动画定义 */
+@keyframes scrollMarquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
