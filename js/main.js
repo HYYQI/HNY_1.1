@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
         messages.forEach(message => {
             const div = document.createElement('div');
             div.textContent = message;
+            div.style.animationDuration = `${5 + Math.random() * 3}s`; // 随机设置10-20秒动画时间
+            div.style.animationDelay = `-${Math.random() * 10}s`; // 随机设置负延迟时间
             marquee.appendChild(div);
         });
     }
