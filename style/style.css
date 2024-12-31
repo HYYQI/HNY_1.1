@@ -46,7 +46,7 @@ header h1 {
 /* 动画定义 */
 @keyframes scrollMarquee {
     from {
-        transform: translateX(100%);
+        transform: translateX(130%);
     }
     to {
         transform: translateX(-100%);
